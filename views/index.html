@@ -1,0 +1,61 @@
+{{layout "layout"}}
+
+<span class="loading-indicator"><img src="/img/loader.gif" alt="Loading..."></span>
+
+<!-- Main hero unit for a primary marketing message or call to action -->
+  <div id="wrapper" class="row">
+    <div id="user-list" class="span3">
+      <div class="toolbar row">
+        <div class="span1 offset2">
+          <a class="btn btn-warning" href="#" id="pick-users">Pick</a>
+        </div>
+      </div>
+      <ul></ul>
+    </div>
+    <div id="main-content" class="span5">
+      <div class="toolbar row">
+        <div class="span3 offset2">
+          <input type="text" id="amount-time" value="7" class="span1 search-query">
+          <a class="btn btn-danger" id="stop-timer" href="">Stop</a>
+          <a class="btn btn-success" id="toggle-timer" href="">Start</a>
+        </div>
+      </div>
+      <div id="clock-box">
+
+      </div>
+      <div class="clock-manual">
+        
+      </div>
+      <div id="sparring-box" class="row">
+        <div class="span2">
+          <h2>Coder</h2>
+          <div class="coder">
+            
+          </div>
+        </div>
+        <div class="span2">
+          <h2>Assist</h2>
+          <div class="assist">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="remove-user">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Remove user</h3>
+  </div>
+  <div class="modal-body">
+    <p>Do you really want to remove user?</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal">Cancel</a>
+    <a href="#" class="btn btn-primary">Remove</a>
+  </div>
+</div>
+
+
+
