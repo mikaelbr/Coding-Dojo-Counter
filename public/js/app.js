@@ -36,7 +36,7 @@ var App = (function ($, canvasPieTimer) {
     };
 
     App.prototype = {
-        accessToken: "AAACEdEose0cBAECxbKZCqVbcYyrFbXwrujZC6IbImS0Cec9QbEZCoa4i0BjW5WJAwSRpnplgo0BUrXs3haaSnOjRK1JGRKBy9eidnbPhwZDZD",
+        accessToken: "AAACEdEose0cBABotiZAm4CkZBZCUzDJeL53m1CWGuawvTY9tV41k1pSJwEycMhiPyN5XfgMjDhSLzmLTPuHXt52rszX8ZCxLiLEoZChcIhgZDZD",
         timerIsGoing: false,
         hasUserSwapped: true,
         init: function () {
