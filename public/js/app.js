@@ -63,17 +63,32 @@ var App = (function ($, canvasPieTimer) {
 
         pick: function () {
 
-            var self = this;
+            var self = this,
+                prePick = [],
+                pickSize = 2;
 
-            if ( self._$userList.children().not(".used").length < 1) {
+            if ( self._$userList.children().not(".used").length < 2 && self.hasUserSwapped ) {
+                var pick = self._$userList.children().not(".used");
+                prePick.push(pick[0]);
+                self._$userList.children().removeClass("used");
+                pick.addClass("used");
+
+                pickSize = 1;
+
+            } else if ( self._$userList.children().not(".used").length < 1) {
                 self._$userList.children().removeClass("used");
             }
 
 
-            var users = $(self._$userList.children().not(".used").get().sort(function(){ 
-                  return Math.round(Math.random())-0.5
-                }).slice(0,2)),
-                clone = users.clone();
+            $.each(self._$userList.children().not(".used").get().sort(function(){ 
+              return Math.round(Math.random())-0.5
+            }).slice(0,pickSize), function (elm, data) {
+                prePick.push(data);
+            });
+            
+            var users = $(prePick);
+
+            var clone = users.clone();
 
             clone.find(".close").remove();
 
