@@ -45,6 +45,8 @@ var App = (function ($, canvasPieTimer) {
             this._bindEvents();
             this._fetchUsers();
             this._initClock();
+
+            this._$inputBox = $("#custom-user");
         },
 
         _initClock: function () {
@@ -175,6 +177,28 @@ var App = (function ($, canvasPieTimer) {
                 $('#remove-user').modal("hide");
             });
 
+
+            $("#custom-user").parents("form").on("submit", function (ev) {
+                var elm = $(this).find("input"),
+                    value = elm.val();
+
+                if(value.length < 1) {
+                    return false;
+                }
+
+                var obj = {
+                    data: [{
+                        id: undefined,
+                        name: value
+                    }]
+                };
+
+                $.publish("cd.userList", obj);
+
+                elm.val("");
+
+                return false;
+            });
         },
 
         _renderUserList: function (userList) {
@@ -185,6 +209,9 @@ var App = (function ($, canvasPieTimer) {
                 user = userList[i];
                 imageUrl = "https://graph.facebook.com/"+user.id+"/picture";
                 image = "<img alt='foo' src='"+imageUrl+"' />";
+                if (!user.id) {
+                    image = "";
+                }
                 $("<li />").attr("data-id", parseInt(user.id, 10))
                     .append(image).append("<span>" + user.name + '<a class="close" data-dismiss="user">×</a></span>')
                     .appendTo(self._$userList);
