@@ -36,7 +36,8 @@ var App = (function ($, canvasPieTimer) {
     };
 
     App.prototype = {
-        accessToken: "AAACEdEose0cBAJL9YUeIUiDqqZBwPdXTUU2JIoV6Wm7UumeQtYDPXJUJMZAFyGYirTFyYF7Hr5DzEPcveOUlZBccu3imgTY4ROhLhq2vwZDZD",
+        accessToken: "AAACEdEose0cBAMONkck57WA3DgSZBKXP2RjgwhNMJZASHyPbgLueZAkVDzCwgZCxqTwxD807XLO9U0xpUX9lde5tbvo6WS3sUE3Cw7N1TgZDZD",
+        eventID: "166465810144056",
         timerIsGoing: false,
         hasUserSwapped: true,
         init: function () {
@@ -191,7 +192,7 @@ var App = (function ($, canvasPieTimer) {
         },
 
         _fetchUsers: function () {
-            var url = "https://graph.facebook.com/198296253618610/attending?access_token=" + this.accessToken;
+            var url = "https://graph.facebook.com/" + this.eventID + "/attending?access_token=" + this.accessToken;
             return $.ajax(url).done(function (result) {
                 $.publish("cd.userList", result);
             });
